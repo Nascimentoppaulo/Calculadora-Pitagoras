@@ -1,0 +1,10 @@
+/* Estilo da calculadora */
+#calculator {
+  background-color: #00b388; /* blue-green */
+  border-radius: 10px; /* square style */
+  padding: 20px;
+  text-align: center;
+}
+body {
+  background-color: black; /* black background */
+}
