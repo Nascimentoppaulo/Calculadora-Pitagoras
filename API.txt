@@ -1,0 +1,17 @@
+from flask import Flask, request, jsonify
+import math
+
+app = Flask(__name__)
+
+@app.route('/calculate_hipotenusa', methods=['POST'])
+def calculate_hipotenusa():
+    cateto_adjacente = request.json.get('cateto_adjacente')
+    cateto_oposto = request.json.get('cateto_oposto')
+    if cateto_adjacente is None or cateto_oposto is None:
+        return jsonify({'error': 'missing parameters'}), 400
+    hipotenusa = math.sqrt(cateto_adjacente**2 + cateto_oposto**2)
+    return jsonify({'hipotenusa': hipotenusa})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
